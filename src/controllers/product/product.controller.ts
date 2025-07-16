@@ -13,7 +13,7 @@ export class ProductController {
   public static createProduct = asyncHandler(async (req, res, next) => {
     const body = createProductValidator.parse(req.body);
     const product = await createProduct(body);
-    return res.status(201).send(new ApiResponse(200, product));
+    return res.status(201).send(new ApiResponse(201, product));
   });
 
   public static updateProduct = asyncHandler(async (req, res, next) => {
