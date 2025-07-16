@@ -21,10 +21,16 @@ enum OrderStatus {
   cancelled
 }
 
+enum UserRole {
+  admin
+  user
+}
+
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @map("email")
   password  String   @map("password")
+  role      UserRole @default(user) @map("role")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   orders    Order[]

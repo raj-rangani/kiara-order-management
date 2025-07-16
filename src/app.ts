@@ -9,7 +9,7 @@ import userRouter from "./routes/user";
 import productRouter from "./routes/product";
 import orderRouter from "./routes/order";
 
-app.use("/users", userRouter);
+app.use("/auth", userRouter);
 app.use("/products", productRouter);
 app.use("/orders", orderRouter);
 

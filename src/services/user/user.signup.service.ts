@@ -13,7 +13,11 @@ export async function signupUserService(data: CreateUserDto) {
   if (userExists) throw new ApiError(409, "User already exists.");
 
   const user = await client.user.create({
-    data: { email, password: hashedPassword },
+    data: {
+      email,
+      password: hashedPassword,
+      role: data.isAdmin ? "admin" : "user",
+    },
   });
 
   return user;
